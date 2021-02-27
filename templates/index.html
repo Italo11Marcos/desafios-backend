@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% if message %}
+    <div class="alert alert-success">
+        {{ message }}
+    </div>
+    {% endif %}
+    <div class="container mt-5 text-center">
+        <div class="card">
+          <h5 class="card-header">Desafio Conecta Nuvem</h5>
+          <div class="card-body">
+            <a href="{{ url_for('test_api_request') }}" class="btn btn-primary">Login</a>
+            <a href="{{ url_for('clear_credentials') }}" class="btn btn-primary">Logout</a>
+          </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+{% block js %}
+
+
+
+{% endblock %}

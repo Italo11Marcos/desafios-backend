@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+        <div class="container mt-4 text-center">
+            <div class="row ">
+              <table class="table">
+                  <thead>
+                    <tr>
+                        <th colspan="2">Grupo E-mails - Desafio Conecta Nuvem</th>
+                    </tr>
+                    <tr>
+                        <th>Domínio</th>
+                        <th>E-mails</th>
+                    </tr>
+                  </thead>
+                {% for key, value in emailsDict.items() %}
+                  <tbody>
+                    <tr>
+                      <td>{{ key }}</td>
+                      <td>
+                      {% for email in value %}
+                        {{ email }}
+                      {% endfor %}
+                      </td>
+                    </tr>
+                  </tbody>
+                {% endfor %}
+            </table>
+
+            <div class="container" style="width: 75%;">
+                <canvas id="pie-chart"></canvas>
+            </div>
+
+            </div>
+        </div>
+
+{% endblock %}
+
+{% block js %}
+
+<script>
+    
+    var config = {
+      type: 'pie',
+      data: {
+        datasets: [{
+          data: {{ values|safe }},
+          backgroundColor: [
+            '#a62639', '#212db5', '#e6e16a', '#41bf4c', '#D3D3D3', '#a044b3', ''
+          ],
+          label: 'Emails'
+        }],
+        labels: {{ labels|safe }}
+      },
+      options: {
+        responsive: true
+      }
+    };
+
+    window.onload = function() {
+      var ctx = document.getElementById('pie-chart').getContext('2d');
+      window.myPie = new Chart(ctx, config);
+    };
+
+</script>
+
+{% endblock %}
