@@ -4,8 +4,6 @@ A partir da People API, agrupar os e-mails pelos seus domínios.
 
 Aplicação desenvolvida com Flask
 
-[Deploy Google APP Engine](https://desafio-nuvem.rj.r.appspot.com)
-
 ## Documentação utilizada para esse desafio:
 
 * [People API](https://developers.google.com/people/api/rest)
