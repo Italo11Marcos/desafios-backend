@@ -24,4 +24,9 @@ class Categoria extends Model
             'max' => 'Max 30 caracteres'
         ];
     }
+
+    public function Produtos()
+    {
+        return $this->hasMany('App\Models\Produto');
+    }
 }

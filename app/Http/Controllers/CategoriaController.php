@@ -17,7 +17,7 @@ class CategoriaController extends Controller
      */
     public function index()
     {
-        $categorias = $this->categoria->all();
+        $categorias = $this->categoria->with('produtos')->get();
         return response()->json($categorias, 200);
     }
 
@@ -42,7 +42,7 @@ class CategoriaController extends Controller
      */
     public function show($id)
     {
-        $categoria = $this->categoria->find($id);
+        $categoria = $this->categoria->with('produtos')->find($id);
         if($categoria === null){
             return response()->json(['erro' => 'Categoria not found'], 404);
         }
