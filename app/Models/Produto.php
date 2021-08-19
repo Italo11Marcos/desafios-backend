@@ -38,4 +38,8 @@ class Produto extends Model
         return $this->belongsTo('App\Models\Categoria');
     }
 
+    public function composicao(){
+        return $this->belongsTo('App\Models\Composicao');
+    }
+
 }

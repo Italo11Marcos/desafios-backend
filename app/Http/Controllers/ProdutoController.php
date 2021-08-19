@@ -18,7 +18,7 @@ class ProdutoController extends Controller
      */
     public function index()
     {
-        $produtos = $this->produto->with('categoria')->get();
+        $produtos = $this->produto->with('categoria', 'composicao')->get();
         return response()->json($produtos, 200);
     }
 
@@ -70,7 +70,7 @@ class ProdutoController extends Controller
      */
     public function show($id)
     {
-        $produto = $this->produto->with('produto')->find($id);
+        $produto = $this->produto->with('produto', 'composicao')->find($id);
 
         if($produto === null){
             return response()->json(['erro' => 'Produto not found'], 404);
