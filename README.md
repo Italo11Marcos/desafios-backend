@@ -1,64 +1,80 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Desafio Vesti
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Desenvolver uma API REST utilizando Laravel 8
 
-## About Laravel
+## Banco de dados
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+    ![Modelagem de dados](https://github.com/Italo11Marcos/desafio-vesti/blob/master/bd-desafio-vesti.png)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Como rodar a aplicação:
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+    1. Clone o projeto:
+        - git clone https://github.com/Italo11Marcos/desafio-vesti.git
 
-## Learning Laravel
+    2. Atualize o composer:
+        - composer update
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+    3. Configure seu .env
+        cp .env-example .env
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+    4. Coloque suas credenciais de acesso ao banco de dados
+    
+    5. Execute: php artisan jwt:secret para gerar a key
+        - Caso o JWT não dê certo, execute os passos: https://jwt-auth.readthedocs.io/en/develop/laravel-installation
 
-## Laravel Sponsors
+    6. Execute as migrations:
+        - php artisan migrate
+    
+## Rotas:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+* O usuário deve estar autenticado para realizar as operações
+* Para pegar o token:
+    - Faça uma requisição POST para: ``/api/login`` com os seguintes dados:
+    {
+        'email': 'italo@teste.com'
+        'password: '123456789'
+    }
+* O Token obtido deve ser passado pelo ``Cliente`` da seguinte forma:
+    - No ``Header`` coloque: ``Authorization``: ``bearer seuToken``
+* O ``Header`` também deve ter: ``Accept``: ``application/json`` 
 
-### Premium Partners
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[CMS Max](https://www.cmsmax.com/)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
+    <hr>
+    //Categorias
 
-## Contributing
+    * GET /api/v1/categorias #Retorna todas as categorias
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+    * GET /api/v1/categorias/{id} #Retorna a categoria com o id informado
 
-## Code of Conduct
+    * POST /api/v1/categorias #Insere os dados cadastrar uma categoria
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+    * PUT/PATCH /api/v1/categorias/{id} #Atualiza a categoria com o id informado
 
-## Security Vulnerabilities
+    * DELETE /api/v1/categorias/{id} #Delete a categoria informada
+    <hr>
+    //Composicaos
+    
+    * GET /api/v1/composicaos #Retorna todas as composicaos
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+    * GET /api/v1/composicaos/{id} #Retorna a composicao com o id informado
 
-## License
+    * POST /api/v1/composicaos #Insere os dados cadastrar uma composicao
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+    * PUT/PATCH /api/v1/composicaos/{id} #Atualiza a composicao com o id informado
+
+    * DELETE /api/v1/composicaos/{id} #Delete a composicao informada
+
+    <hr>
+    //Produtos
+
+    * GET /api/v1/produtos #Retorna todas as produtos
+
+    * GET /api/v1/produtos/{id} #Retorna a produto com o id informado
+
+    * POST /api/v1/produtos #Insere os dados cadastrar uma produto
+
+    * PUT/PATCH /api/v1/produtos/{id} #Atualiza a produto com o id informado
+
+    * DELETE /api/v1/produtos/{id} #Delete a produto informada
+
+Obs: Não conseguir usar nenhuma lib para gerar a documentação da API
