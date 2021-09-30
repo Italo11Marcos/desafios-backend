@@ -48,6 +48,10 @@ O arquivo ``covid/predict.py`` é onde faz os calculos da predição.
 
 - Obs: Não precisa rodar as migrations pois não utilizei nenhuma conexão com o banco de dados.
 
+- Após isso, você vai ver uma tela igual a essa:
+
+![Tela inicial](https://github.com/Italo11Marcos/desafio_d3/blob/master/tela_index.png)
+
 ## Rodar os testes
 
 - Execute o comando: ``python manage.py test`` ou ``coverage run manage.py test``
