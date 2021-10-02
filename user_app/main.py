@@ -37,7 +37,7 @@ def read_users(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
 
 
 @app.get("/users/{name}", response_model=schemas.User)
-def read_user(name: int, db: Session = Depends(get_db)):
+def read_user(name: str, db: Session = Depends(get_db)):
     db_user = crud.get_user(db, name=name)
     if db_user is None:
         raise HTTPException(status_code=404, detail="User not found")
