@@ -1,10 +1,47 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <div class="app">
+    <img alt="Vue logo" src="./assets/logo.png">
+    <tr v-for="user in users" v-bind:key="user">
+          <td>{{ user.name }}</td>
+    </tr>
+    <form v-on:submit.prevent="submitForm">
+      <input type="text" v.model="form.name" >
+      <button type="submit">Enviar</button>
+    </form>
   </div>
-  <router-view/>
 </template>
+
+<script>
+
+
+export default {
+  name: 'app',
+
+  data() {
+    return{
+      users: [],
+      name: '',
+    }
+  },
+
+  methods:{
+    submitForm(){
+      this.axios.post('http://127.0.0.1:8000/users/', {name: this.name}).then((response) => {
+        alert(response.data);
+      }).catch(error => {
+        console.log(this.name)
+        console.log(error.response);
+      });
+    }
+  },
+
+  created() {
+    this.axios.get('http://127.0.0.1:8000/users/').then((response)=>{
+      this.users=response.data;
+    });
+  }
+}
+</script>
 
 <style lang="scss">
 #app {
@@ -13,18 +50,6 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+  margin-top: 60px;
 }
 </style>
