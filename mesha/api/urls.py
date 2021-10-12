@@ -3,4 +3,4 @@ from .views import LivroViewSet
 
 
 router = SimpleRouter()
-router.register('livros', LivroViewSet)
+router.register('obras', LivroViewSet)
