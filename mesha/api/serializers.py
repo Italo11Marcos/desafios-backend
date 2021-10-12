@@ -15,7 +15,7 @@ class LivroSerializer(ModelSerializer):
 
     class Meta:
         model = Livro
-        fields = ('id', 'titulo', 'editora', 'foto', 'autores')
+        fields = ('id', 'titulo', 'editora', 'foto', 'autores', 'data_criacao')
 
     def create_autores(self, autores, livro):
         for autor in autores:
