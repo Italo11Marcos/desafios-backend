@@ -15,7 +15,7 @@ class Livro(models.Model):
         Autor,
         verbose_name='autores'
     )
-    data_cricao = models.DateTimeField(auto_now_add=True)
+    data_criacao = models.DateField(auto_now_add=True)
 
     class Meta:
         ordering = ['titulo']
