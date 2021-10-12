@@ -6,4 +6,5 @@ from api.urls import router
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
+    path('', include('api.urls'))
 ]
