@@ -1,0 +1,23 @@
+<html><body>
+<h1>Obras</h1>
+<table>
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>Titulo</th>
+            <th>Editora</th>
+            <th>Autores</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for obra in obras %}
+            <tr>
+                <td>{{ obra.id }}</td>
+                <td>{{ obra.titulo }}</td>
+                <td>{{ obra.editora }}</td>
+                <td>{{ obra.autores }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</body></html>
