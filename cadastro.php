@@ -11,7 +11,7 @@ require_once("db.php");
   <div class="card">
     <div class="card-body register-card-body">
       <p class="login-box-msg">Faça o seu cadastro</p>
-
+      <?php require_once("session_messages.php") ?>
       <form action="<?php $BASE_URL ?>cadastro_process.php" method="post">
         <div class="input-group mb-3">
           <input type="text" class="form-control" placeholder="Nome Completo" name="nome_completo" required>
