@@ -8,36 +8,34 @@ $password = $_POST['password'];
 $password1 = $_POST['password1'];
 $data_criacao = date('Y-m-d H:i:s');
 
-
-$url = $BASE_URL."cadastro.php";
-$url = str_replace("\\", "", $url);
-
 $erros = False;
 
 if(empty($nome) || empty($login) || empty($password) || empty($password1)){
     $erros = True;
     $_SESSION['campos'] = '<p class="alert alert-danger text-center">Todos os campos devem ser preenchidos</p>';
-    $ext = 'cadastro.php';
-    $url = $BASE_URL.$ext;
-    echo " <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=$url'> ";
+    header('Location: cadastro.php');
+    exit();
 }
 
 if(strlen($login) > 200){
     $erros = True;
     $_SESSION['login'] = '<p class="alert alert-danger text-center">Limite máximo de 200 caracteres</p>';
-    echo " <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=$url'> ";
+    header('Location: cadastro.php');
+    exit();
 }
 
 if($password != $password1){
     $erros = True;
     $_SESSION['password'] = '<p class="alert alert-danger text-center">As senhas devem ser iguais</p>';
-    echo " <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=$url'> ";
+    header('Location: cadastro.php');
+    exit();
 }
 
 if($password == $password1 && strlen($password) < 8){
     $erros = True;
     $_SESSION['password'] = '<p class="alert alert-danger text-center">A senha deve conter menos que 8 caracteres</p>';
-    echo " <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=$url'> ";
+    header('Location: cadastro.php');
+    exit();
 }
 
 if(!$erros){
@@ -49,11 +47,13 @@ if(!$erros){
     $stmt->bindParam(":data_criacao", $data_criacao);
     if($stmt->execute()){
         $_SESSION['sucesso'] = '<p class="alert alert-success text-center">Cadastro Realizado com sucesso</p>';
-        echo " <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=$url'> ";
+        header('Location: cadastro.php');
+        exit();
         
     }else{
         $_SESSION['erro'] = '<p class="alert alert-danger text-center">Erro ao cadastrar</p>';
-        echo " <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=$url'> ";
+        header('Location: cadastro.php');
+        exit();
     }
 }
 ?>
