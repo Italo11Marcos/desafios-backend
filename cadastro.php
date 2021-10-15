@@ -10,11 +10,11 @@ require_once("db.php");
   </div>
   <div class="card">
     <div class="card-body register-card-body">
-      <p class="login-box-msg">Register a new membership</p>
+      <p class="login-box-msg">Faça o seu cadastro</p>
 
-      <form action="#" method="post">
+      <form action="<?php $BASE_URL ?>cadastro_process.php" method="post">
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Full name">
+          <input type="text" class="form-control" placeholder="Nome Completo" name="nome_completo" required>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>
@@ -22,7 +22,7 @@ require_once("db.php");
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="email" class="form-control" placeholder="Email">
+          <input type="text" class="form-control" placeholder="Login" name="login" required>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -30,7 +30,7 @@ require_once("db.php");
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password">
+          <input type="password" class="form-control" placeholder="Senha" name="password" required>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -38,7 +38,7 @@ require_once("db.php");
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Retype password">
+          <input type="password" class="form-control" placeholder="Repita e senha" name="password1" required>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -47,12 +47,12 @@ require_once("db.php");
         </div>
         <!-- /.col -->
         <div class="input-group mb-3">
-            <button type="submit" class="btn btn-primary btn-block">Register</button>
+            <button type="submit" class="btn btn-primary btn-block">Registrar</button>
         </div>
         <!-- /.col -->
       </form>
 
-      <a href="#" class="text-center">I already have a membership</a>
+      <a href="<?php $BASE_URL ?>login.php" class="text-center">Eu já tenho cadastro</a>
     </div>
     <!-- /.form-box -->
   </div><!-- /.card -->

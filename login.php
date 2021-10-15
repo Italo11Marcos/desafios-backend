@@ -11,11 +11,9 @@ require_once("db.php");
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
-      <p class="login-box-msg">Sign in to start your session</p>
-
       <form action="#" method="post">
         <div class="input-group mb-3">
-          <input type="email" class="form-control" placeholder="Email">
+          <input type="email" class="form-control" placeholder="Login" name="login" required>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -23,7 +21,7 @@ require_once("db.php");
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password">
+          <input type="password" class="form-control" placeholder="Senha" name="password" required>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -32,14 +30,14 @@ require_once("db.php");
         </div>
         <div class="row">
           <!-- /.col -->
-          <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+          <div class="input-group mb-3">
+            <button type="submit" class="btn btn-primary btn-block">Entrar</button>
           </div>
           <!-- /.col -->
         </div>
       </form>
       <p class="mb-0">
-        <a href="register.html" class="text-center">Register a new membership</a>
+        <a href="<?php $BASE_URL ?>cadastro.php" class="text-center">Faça seu cadastro</a>
       </p>
     </div>
     <!-- /.login-card-body -->
