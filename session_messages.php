@@ -19,4 +19,8 @@
         echo $_SESSION['erro'];
         unset($_SESSION['erro']);
     }
+    if(!empty($_SESSION['nao_autenticado'])){
+        echo $_SESSION['nao_autenticado'];
+        unset($_SESSION['nao_autenticado']);
+    }
 ?>

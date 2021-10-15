@@ -11,9 +11,10 @@ require_once("db.php");
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
-      <form action="#" method="post">
+      <?php require_once("session_messages.php") ?>
+      <form action="<?php $BASE_URL ?>login_controller.php" method="post">
         <div class="input-group mb-3">
-          <input type="email" class="form-control" placeholder="Login" name="login" required>
+          <input type="text" class="form-control" placeholder="Login" name="login" required>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
