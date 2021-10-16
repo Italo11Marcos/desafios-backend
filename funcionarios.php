@@ -37,7 +37,7 @@ require_once("db.php");
                                 <td><?php echo 'R$'.$funcionario['saldo_atual'] ?></td>
                                 <td><?php echo $funcionario['data_criacao'] ?></td>
                                 <td>
-                                    <a href="" title="Visualizar extratos"><i class="far fa-eye"></i></a>
+                                    <a href="<?php $BASEURL ?>movimentacoes_funcionarios.php?id=<?php echo $funcionario['id'] ?>" title="Visualizar extratos"><i class="far fa-eye"></i></a>
                                     <a href="<?php $BASEURL ?>edicao_funcionarios.php?id=<?php echo $funcionario['id'] ?>" title="Editar funcionário"><i class="far fa-edit"></i></a>
                                     <a href="#" class="remove" title="Excluir funcionário" data-toggle="modal" data-target="#modalExcluirFuncionario"><i class="far fa-trash-alt"></i></a>
                                 </td>
