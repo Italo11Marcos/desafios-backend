@@ -15,6 +15,14 @@
         echo $_SESSION['saldo'];
         unset($_SESSION['saldo']);
     }
+    if(!empty($_SESSION['movimentacao'])){
+        echo $_SESSION['movimentacao'];
+        unset($_SESSION['movimentacao']);
+    }
+    if(!empty($_SESSION['valor'])){
+        echo $_SESSION['valor'];
+        unset($_SESSION['valor']);
+    }
     if(!empty($_SESSION['sucesso'])){
         echo $_SESSION['sucesso'];
         unset($_SESSION['sucesso']);
