@@ -9,6 +9,7 @@ require_once("db.php");
     <div class="card">
         <div class="card-header">
             <h3 class="card-title"><b>Funcionários</b></h3>
+            <?php require_once("session_messages.php") ?>
         </div>
         <div class="card-body">
             <div class="row">
@@ -27,17 +28,17 @@ require_once("db.php");
                             <?php  
                                 $stmt = $conn->prepare("SELECT id, nome_completo, saldo_atual, data_criacao FROM funcionarios");
                                 $stmt->execute();
-                                $retorno = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                                foreach($retorno as $ret){
+                                $funcionarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                                foreach($funcionarios as $funcionario){
                             ?>
                             <tr>
-                                <td><?php echo $ret['id'] ?></td>
-                                <td><?php echo $ret['nome_completo'] ?></td>
-                                <td><?php echo 'R$'.$ret['saldo_atual'] ?></td>
-                                <td><?php echo $ret['data_criacao'] ?></td>
+                                <td><?php echo $funcionario['id'] ?></td>
+                                <td><?php echo $funcionario['nome_completo'] ?></td>
+                                <td><?php echo 'R$'.$funcionario['saldo_atual'] ?></td>
+                                <td><?php echo $funcionario['data_criacao'] ?></td>
                                 <td>
                                     <a href="" title="Visualizar extratos"><i class="far fa-eye" aria></i></a>
-                                    <a href="" title="Editar funcionário"><i class="far fa-edit" aria></i></a>
+                                    <a href="<?php $BASEURL ?>edicao_funcionarios.php?id=<?php echo $funcionario['id'] ?>" title="Editar funcionário"><i class="far fa-edit" aria></i></a>
                                     <a href="" title="Excluir funcionário"><i class="far fa-trash-alt" aria></i></a>
                                 </td>
                             </tr>
