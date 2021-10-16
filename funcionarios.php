@@ -31,15 +31,15 @@ require_once("db.php");
                                 $funcionarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                 foreach($funcionarios as $funcionario){
                             ?>
-                            <tr>
+                            <tr id="<?php echo $funcionario['id'] ?>">
                                 <td><?php echo $funcionario['id'] ?></td>
                                 <td><?php echo $funcionario['nome_completo'] ?></td>
                                 <td><?php echo 'R$'.$funcionario['saldo_atual'] ?></td>
                                 <td><?php echo $funcionario['data_criacao'] ?></td>
                                 <td>
-                                    <a href="" title="Visualizar extratos"><i class="far fa-eye" aria></i></a>
-                                    <a href="<?php $BASEURL ?>edicao_funcionarios.php?id=<?php echo $funcionario['id'] ?>" title="Editar funcionário"><i class="far fa-edit" aria></i></a>
-                                    <a href="" title="Excluir funcionário"><i class="far fa-trash-alt" aria></i></a>
+                                    <a href="" title="Visualizar extratos"><i class="far fa-eye"></i></a>
+                                    <a href="<?php $BASEURL ?>edicao_funcionarios.php?id=<?php echo $funcionario['id'] ?>" title="Editar funcionário"><i class="far fa-edit"></i></a>
+                                    <a href="#" class="remove" title="Excluir funcionário" data-toggle="modal" data-target="#modalExcluirFuncionario"><i class="far fa-trash-alt"></i></a>
                                 </td>
                             </tr>
                             <?php } ?>
@@ -50,6 +50,29 @@ require_once("db.php");
         </div>
     </div>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="modalExcluirFuncionario" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content border border-danger">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        Realmente deseja excluir este funcionário?
+      </div>
+      <div class="modal-footer">
+        <form action="<?php $BASEURL ?>funcionarios_controller.php" method="post">
+            <input type="hidden" name="tipo" value="excluir">
+            <input id="funcionario_excluir" type="hidden" name="id_funcionario" value="">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <button type="submit" class="btn btn-danger">Excluir</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
 </section>
 
 <?php

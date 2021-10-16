@@ -13,28 +13,28 @@ $data_edicao = date('Y-m-d H:i:s');
 
 $erros = False;
 
-if(empty($nome) || empty($login) || empty($password) || empty($saldo)){
+if((empty($nome) || empty($login) || empty($password) || empty($saldo)) && $tipo != 'excluir'){
     $erros = True;
     $_SESSION['campos'] = '<p class="alert alert-danger text-center">Todos os campos devem ser preenchidos</p>';
     header('Location: cadastro_funcionarios.php');
     exit();
 }
 
-if(strlen($login) > 200){
+if(strlen($login) > 200 && $tipo != 'excluir'){
     $erros = True;
     $_SESSION['login'] = '<p class="alert alert-danger text-center">Limite máximo de 200 caracteres</p>';
     header('Location: cadastro_funcionarios.php');
     exit();
 }
 
-if(!is_numeric($saldo)){
+if(!is_numeric($saldo) && $tipo != 'excluir'){
     $erros = True;
     $_SESSION['saldo'] = '<p class="alert alert-danger text-center">Insira um valor numérico</p>';
     header('Location: cadastro_funcionarios.php');
     exit();
 }
 
-if(strlen($password) < 8){
+if(strlen($password) < 8 && $tipo != 'excluir'){
     $erros = True;
     $_SESSION['password'] = '<p class="alert alert-danger text-center">A senha deve conter menos que 8 caracteres</p>';
     header('Location: cadastro_funcionarios.php');
@@ -86,6 +86,20 @@ if(!$erros){
             header('Location: funcionarios.php');
             exit();
         }
-    }   
+    }else if($tipo == 'excluir'){
+        $id_funcionario = $_POST['id_funcionario'];
+        $stmt = $conn->prepare("DELETE FROM funcionarios WHERE id = :id");
+        $stmt->bindParam(":id", $id_funcionario);
+        if($stmt->execute()){
+            $_SESSION['sucesso'] = '<p class="alert alert-success text-center">Funcionário excluído com sucesso</p>';
+            header('Location: funcionarios.php');
+            exit();
+            
+        }else{
+            $_SESSION['erro'] = '<p class="alert alert-danger text-center">Erro ao excluir</p>';
+            header('Location: funcionarios.php');
+            exit();
+        }
+    }
 }
 ?>

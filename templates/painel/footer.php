@@ -52,7 +52,15 @@
         });
     } );
 </script>
-
-
+<!-- Excluir Funcionário -->
+<script>
+    $(document).ready(function(){
+        $('.remove').click(function(){
+            var id = $(this).parents("tr").attr("id");
+            var input = $("#funcionario_excluir");
+            input.val(id);
+        });
+    });
+</script>
 </body>
 </html>
