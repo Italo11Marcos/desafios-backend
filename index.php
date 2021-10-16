@@ -2,6 +2,7 @@
 require_once("templates/painel/header.php");
 require_once("globals.php");
 require_once("db.php");
+require_once("verifica_login.php");
 ?>
 
 <section class="content">
