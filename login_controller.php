@@ -10,7 +10,7 @@ $password = sha1($password);
 $url = $BASE_URL."cadastro.php";
 $url = str_replace("\\", "", $url);
 
-$stmt = $conn->prepare("SELECT login FROM administradores WHERE login = :login AND senha = :senha");
+$stmt = $conn->prepare("SELECT id, login FROM administradores WHERE login = :login AND senha = :senha");
 $stmt->bindParam(":login", $login);
 $stmt->bindParam(":senha", $password);
 $stmt->execute();
@@ -21,6 +21,7 @@ if(!$result){
     exit();
 }else{
     $_SESSION['usuario'] = $login;
+    $_SESSION['id_admin'] = $result['id'];
     header('Location: index.php');
     exit();
 }

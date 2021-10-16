@@ -11,6 +11,10 @@
         echo $_SESSION['password'];
         unset($_SESSION['password']);
     }
+    if(!empty($_SESSION['saldo'])){
+        echo $_SESSION['saldo'];
+        unset($_SESSION['saldo']);
+    }
     if(!empty($_SESSION['sucesso'])){
         echo $_SESSION['sucesso'];
         unset($_SESSION['sucesso']);
