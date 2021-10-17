@@ -22,7 +22,7 @@ if(!$result){
 }else{
     $_SESSION['usuario'] = $login;
     $_SESSION['id_admin'] = $result['id'];
-    header('Location: index.php');
+    header('Location: funcionarios.php');
     exit();
 }
 

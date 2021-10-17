@@ -38,7 +38,7 @@ $id_admin = $_SESSION['id_admin'];
                     <div class="col-md-4">
                         <div class="form-group">
                             <label>Saldo:</label>
-                            <input class="form-control" type="text" name="saldo" placeholder="Saldo" required>
+                            <input class="form-control" type="text" name="saldo" placeholder="00.00" required>
                         </div>
                     </div>
                 </div>
