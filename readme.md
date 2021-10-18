@@ -1,12 +1,3 @@
-# Teste Morpheus Tecnologia
-
-Infelizmente não consegui fazer o desafio utilizando o Vue no front-end. 
-
-Meu objetivo principal era fazer o back-end utilizando o framework FastAPI e no front utilizando o Vue.
-
-No entando, não deu certo, e para não deixar de mandar nada, fiz o crud solicitado utilizando somente o framework Django.
-
-<b>Obs:</b> Os arquivos de banco de dados já estão no projeto. O arquivo referente ao crud em django é o ``crud/db.sqlite3`` e ao FastApi é o ``/sql_app.db``.
 
 ## Rodar a aplicação:
 
