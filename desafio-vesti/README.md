@@ -4,7 +4,7 @@ Desenvolver uma API REST utilizando Laravel 8
 
 ## Banco de dados
 
-![Modelagem de dados](https://github.com/Italo11Marcos/desafio-vesti/blob/master/bd-desafio-vesti.png)    
+![Modelagem de dados](https://github.com/Italo11Marcos/desafios-backend/blob/master/desafio-vesti/bd-desafio-vesti.png) 
 
 ## Como rodar a aplicação:
 
