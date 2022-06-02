@@ -8,7 +8,7 @@
 
 - A princípio não estava conseguindo inserir uma lsita, então estava fazendo utilizando [Nested Relationships](https://www.django-rest-framework.org/api-guide/relations/#nested-relationships)
 
-- O repositório da primera tentativa é esse: https://github.com/Italo11Marcos/desafio-mesha. Nele, os commits estão da forma mais correta.
+- O repositório da primera tentativa é esse: https://github.com/Italo11Marcos/desafios-backend/tree/master/desafio-mesha. Nele, os commits estão da forma mais correta.
 
     - Esse repositório possui possui todas as rotas desse, exceto a [POST] /upload-obras/
 
