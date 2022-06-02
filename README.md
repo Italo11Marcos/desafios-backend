@@ -1,6 +1,6 @@
 # desafios-backend
 
-Repositório com alguns desafios backend de processo seletivo de empresas
+Repositório com alguns desafios backend de processos seletivos de empresas
 
 * [Desafio Mesha](https://github.com/Italo11Marcos/desafios-backend/tree/master/desafio-back-mesha) - Django Rest Framework
 * [Desafio Catapi](https://github.com/Italo11Marcos/desafios-backend/tree/master/desafio-catapi) - Django Rest Framework
